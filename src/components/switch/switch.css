@@ -1,0 +1,32 @@
+.switch {
+  @apply relative;
+  @apply appearance-none;
+  @apply cursor-pointer;
+  @apply w-[44px] h-[24px];
+  @apply rounded-full;
+  background: #CCC;
+  @apply shadow;
+  @apply dark:bg-gray-600;
+  @apply outline-none;
+  transition: all .3s;
+
+  &:checked {
+    @apply bg-green-400;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    @apply bg-white dark:bg-gray-200;
+    @apply rounded-full;
+    top: 2px;
+    left: 2px;
+    transition: left .3s;
+  }
+
+  &:checked:before {
+    left: 22px;
+  }
+}

@@ -1,0 +1,26 @@
+.header {
+  @apply h-[3.875rem];
+  @apply bg-primary;
+  @apply px-6;
+  @apply flex;
+  @apply items-center;
+  @apply text-white;
+
+  &__action {
+    @apply ml-auto;
+    @apply flex;
+    @apply items-center;
+  }
+}
+
+.navigation {
+  @apply ml-[16rem];
+
+  &__list {
+    @apply flex;
+  }
+
+  &__item {
+    @apply mx-3 px-3;
+  }
+}

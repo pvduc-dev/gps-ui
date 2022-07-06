@@ -1,0 +1,44 @@
+.table {
+  font-weight: 400 !important;
+  @apply w-full;
+  @apply text-black;
+  border-radius: 12px;
+
+  thead {
+    @apply rounded-lg;
+
+    tr:first-child {
+      background-color: rgba(0, 0, 0, .02);
+      th:first-child {
+      }
+    }
+
+    tr:last-child {
+      background-color: rgba(0, 0, 0, .02);
+      th {
+        text-align: left;
+        @apply px-4;
+      }
+    }
+  }
+
+  tr {
+  }
+
+  th {
+    @apply py-2;
+    @apply font-medium;
+  }
+
+  td {
+    @apply px-4;
+  }
+
+  tbody {
+    tr {
+      td {
+        @apply py-2;
+      }
+    }
+  }
+}

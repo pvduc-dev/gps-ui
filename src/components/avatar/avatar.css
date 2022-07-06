@@ -1,0 +1,12 @@
+.avatar {
+  @apply rounded-full;
+  @apply w-10 h-10;
+  @apply inline-flex;
+  @apply bg-cover;
+
+  &__image {
+    @apply rounded-full;
+    @apply w-10 h-10;
+    @apply bg-contain;
+  }
+}
