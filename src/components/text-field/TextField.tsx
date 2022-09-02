@@ -1,5 +1,5 @@
-import React, {forwardRef, ForwardRefRenderFunction} from 'react';
-import {useTextField, AriaTextFieldOptions, TextFieldRefObject} from '@react-aria/textfield';
+import React, {forwardRef, ForwardRefRenderFunction, useRef} from 'react';
+import {AriaTextFieldOptions, TextFieldRefObject, useTextField} from '@react-aria/textfield';
 import clsx from "clsx";
 
 interface TextFieldProps extends AriaTextFieldOptions<'input'> {
@@ -13,7 +13,8 @@ const BASE_INPUT_CLASS_NAME = 'px-3 py-2.5 rounded-md w-full outline-none border
 const BASE_MESSAGE_CLASS_NAME = 'inline-block text-xs leading-none text-danger m-2 ml-1'
 
 const TextField: ForwardRefRenderFunction<HTMLInputElement, TextFieldProps> = (props, ref) => {
-  const {labelProps, inputProps, errorMessageProps} = useTextField(props, ref as TextFieldRefObject<'input'>);
+  const inputRef = ref ?? useRef<HTMLDivElement>(null);
+  const {labelProps, inputProps, errorMessageProps} = useTextField(props, inputRef as TextFieldRefObject<'input'>);
 
   return (
     <div className="block">

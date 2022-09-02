@@ -5,7 +5,7 @@ export const parameters = {
   backgrounds: { disable: true },
   darkMode: {
     stylePreview : true,
-    current: 'dark',
+    current: 'light',
     darkClass: 'dark',
     lightClass: 'light',
     classTarget: 'html',

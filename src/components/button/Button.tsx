@@ -1,7 +1,7 @@
 import React, {FC, FocusEvent, RefObject, useRef} from 'react';
 import clsx from 'clsx';
 import {useButton} from "react-aria";
-import { AriaButtonProps } from '@react-types/button';
+import {AriaButtonProps} from '@react-types/button';
 import {Color} from "../../types/color";
 // @ts-ignore
 import style from '../../index.css';

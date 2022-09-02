@@ -1,9 +1,4 @@
-import React, {
-  forwardRef,
-  LegacyRef,
-  useCallback,
-  useState
-} from 'react';
+import React, {forwardRef, LegacyRef, useCallback, useState} from 'react';
 import {DOMRef} from '@react-types/shared';
 import {OpenTransition} from './OpenTransition';
 import {createPortal} from "react-dom";

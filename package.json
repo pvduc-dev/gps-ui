@@ -51,7 +51,9 @@
   "dependencies": {
     "@tiptap/react": "^2.0.0-beta.108",
     "@tiptap/starter-kit": "^2.0.0-beta.183",
+    "@types/lodash-es": "^4.17.6",
     "clsx": "^1.1.1",
+    "lodash-es": "^4.17.21",
     "react-aria": "^3.12.0",
     "react-hook-form": "^7.27.1",
     "react-pin-input": "^1.0.1",
@@ -78,6 +80,8 @@
     "husky": "^7.0.4",
     "postcss": "^8.4.5",
     "postcss-nested": "^5.0.6",
+    "postcss-nesting": "^10.1.10",
+    "postcss-preset-env": "^7.8.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-is": "^17.0.2",

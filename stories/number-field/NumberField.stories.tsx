@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useRef} from "react";
 
 import { ComponentStory } from "@storybook/react";
 
@@ -13,18 +13,22 @@ export default {
 }
 
 export const Story: ComponentStory<typeof NumberField> = () => {
+  const ref = useRef<HTMLInputElement>(null);
+
   return (
     <Card
       width={400}
     >
       <CardContent>
         <NumberField
+          ref={ref}
           label="Price"
           formatOptions={{
             style: 'currency',
-            currency: 'USD',
+            currency: 'VND',
             currencyDisplay: 'code'
           }}
+          value={20000}
         />
       </CardContent>
     </Card>

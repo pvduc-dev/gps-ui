@@ -1,4 +1,4 @@
-import React, {FC, RefObject} from 'react';
+import React, {forwardRef, ForwardRefRenderFunction, RefObject, useRef} from 'react';
 import {useNumberField} from '@react-aria/numberfield';
 import {useNumberFieldState} from '@react-stately/numberfield';
 import {useLocale} from '@react-aria/i18n';
@@ -11,22 +11,23 @@ interface NumberFieldProps extends AriaNumberFieldProps {
 
 }
 
-const NumberField: FC<NumberFieldProps> = (props) => {
+const NumberField: ForwardRefRenderFunction<HTMLInputElement, NumberFieldProps> = (props, ref) => {
+  const inputRef = ref ?? useRef<HTMLInputElement>(null);
   const {locale} = useLocale();
   const state = useNumberFieldState({...props, locale})
-  const inputRef = React.useRef() as RefObject<HTMLInputElement>;
-  const incrRef = React.useRef() as RefObject<HTMLButtonElement>;
-  const decRef = React.useRef() as RefObject<HTMLButtonElement>;
+  const incrRef = React.useRef<HTMLButtonElement>();
+  const decRef = React.useRef<HTMLButtonElement>();
+
   const {
     labelProps,
     groupProps,
     inputProps,
     incrementButtonProps,
     decrementButtonProps,
-  } = useNumberField(props, state, inputRef);
+  } = useNumberField(props, state, inputRef as RefObject<HTMLInputElement>);
 
-  const {buttonProps: incrementProps} = useButton(incrementButtonProps, incrRef);
-  const {buttonProps: decrementProps} = useButton(decrementButtonProps, decRef);
+  const {buttonProps: incrementProps} = useButton(incrementButtonProps, incrRef as RefObject<HTMLButtonElement>);
+  const {buttonProps: decrementProps} = useButton(decrementButtonProps, decRef as RefObject<HTMLButtonElement>);
 
   const BASE_LABEL_CLASS_NAME = 'inline-block text-sm font-medium leading-none m-1 mb-3'
   const BASE_INPUT_CLASS_NAME = 'px-3 py-2.5 rounded-md w-full outline-none border dark:bg-[#0F0D1E] dark:border-[#1F1B39]'
@@ -52,7 +53,8 @@ const NumberField: FC<NumberFieldProps> = (props) => {
           className={clsx([
             BASE_INPUT_CLASS_NAME
           ])}
-          {...inputProps} ref={inputRef}
+          ref={inputRef}
+          {...inputProps}
         />
         <button
           className={clsx([
@@ -123,4 +125,6 @@ const NumberField: FC<NumberFieldProps> = (props) => {
   );
 };
 
-export {NumberField};
+const _NumberField = forwardRef(NumberField)
+
+export {_NumberField as NumberField};

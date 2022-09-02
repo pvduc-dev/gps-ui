@@ -1,5 +1,5 @@
-import React, {FC, cloneElement, isValidElement, Children, PropsWithChildren} from 'react';
-import { useForm } from "react-hook-form";
+import React, {Children, cloneElement, FC, isValidElement, PropsWithChildren} from 'react';
+import {useForm} from "react-hook-form";
 
 interface FormProps {
   onSubmit: (data: object) => void,

@@ -1,0 +1,11 @@
+.card {
+  @apply flex flex-col rounded-xl bg-white dark:bg-[#0F0D1E] text-lg;
+  &__title {
+    @apply px-6 pt-6 pb-4;
+    @apply text-gray-900 font-medium;
+  }
+
+  &__content {
+    @apply px-6
+  }
+}

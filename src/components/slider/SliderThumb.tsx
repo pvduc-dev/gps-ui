@@ -14,12 +14,11 @@ interface SliderThumbProps extends AriaSliderThumbProps {
 }
 
 const SliderThumb: FC<SliderThumbProps> = (props) => {
-  const { state, trackRef, index } = props;
-  let inputRef = React.useRef(null);
+  const { state, trackRef, inputRef, index } = props;
   const { thumbProps, inputProps } = useSliderThumb({
     index,
     trackRef,
-    inputRef: inputRef,
+    inputRef,
   }, state);
 
   const { focusProps, isFocusVisible } = useFocusRing();

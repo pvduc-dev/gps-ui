@@ -6,13 +6,11 @@ interface CardTitleProps {
   className?: string;
 }
 
-const CARD_TITLE_CLASS_NAME = 'px-4 py-1 font-medium text-lg text-primary'
-
-const CardTitle: FC<CardTitleProps> = ({ children }) => {
+const CardTitle: FC<CardTitleProps> = ({ className, children }) => {
   return (
     <>
       <div
-        className={clsx(CARD_TITLE_CLASS_NAME)}
+        className={clsx('card__title', className)}
       >
         {children}
       </div>

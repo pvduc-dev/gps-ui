@@ -7,7 +7,8 @@ import {SliderThumb} from "./SliderThumb";
 
 interface SliderProps<T> extends SpectrumBarSliderBase<T> {}
 
-const Slider: ForwardRefRenderFunction<HTMLElement, SliderProps<any>> = (props, inputRef) => {
+const Slider: ForwardRefRenderFunction<HTMLElement, SliderProps<any>> = (props, ref) => {
+  const inputRef = ref ?? useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const numberFormatter = useNumberFormatter(props.formatOptions);
   const state = useSliderState({...props, numberFormatter});
@@ -47,7 +48,12 @@ const Slider: ForwardRefRenderFunction<HTMLElement, SliderProps<any>> = (props, 
         <div
           className="absolute bg-gray-200 dark:bg-[#1D1A32] h-1.5 top-3.5 w-full rounded-full"
         />
-        <SliderThumb state={state} trackRef={trackRef} inputRef={inputRef as RefObject<HTMLInputElement>} index={0}/>
+        <SliderThumb
+          state={state}
+          trackRef={trackRef}
+          inputRef={inputRef as RefObject<HTMLInputElement>}
+          index={0}
+        />
         <div
           className="absolute h-1.5 bg-primary top-3.5 rounded-full"
           style={{width: `${state.getThumbPercent(0) * 100}%`}}

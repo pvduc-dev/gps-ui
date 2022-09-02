@@ -19,7 +19,8 @@ export const Story: ComponentStory<typeof Table> = () => {
             Header: 'First Name',
             accessor: 'firstName',
             width: '200px',
-            maxWidth: '200px'
+            maxWidth: '200px',
+
           },
           {
             Header: 'Last Name',

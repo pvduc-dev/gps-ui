@@ -1,7 +1,9 @@
 import React, {FC} from 'react';
-import {useTable, useColumnOrder} from 'react-table';
+import {useColumnOrder, useTable} from 'react-table';
 
 import './table.css';
+import TableHeader from "./TableHeader";
+import TableBody from "./TableBody";
 
 interface TableProps {
   columns: Record<string, any>[];
@@ -18,45 +20,21 @@ const Table: FC<TableProps> = ({columns, data}) => {
   } = useTable({
     columns: columns as any[],
     data: data as any,
-  }, useColumnOrder)
+  }, useColumnOrder);
+
   return (
     <table
       {...getTableProps()}
       className="table"
     >
-      <thead>
-        {headerGroups.map((headerGroup) => (
-        <tr {...headerGroup.getHeaderGroupProps()}>
-          {headerGroup.headers.map((column) => {
-            console.log(column)
-            return (
-              <th
-                {...column.getHeaderProps()}
-                style={{width: column?.width, maxWidth: column?.maxWidth, minWidth: column?.minWidth}}
-              >
-                {column.render('Header')}
-              </th>
-            )
-          })}
-        </tr>
-        ))}
-      </thead>
-      <tbody {...getTableBodyProps()}>
-        {rows.slice(0, 10).map((row) => {
-          prepareRow(row)
-          return (
-            <tr {...row.getRowProps()}>
-              {row.cells.map((cell) => {
-                return (
-                  <td {...cell.getCellProps()}>
-                    {cell.render('Cell')}
-                  </td>
-                )
-              })}
-            </tr>
-          )
-        })}
-      </tbody>
+      <TableHeader
+        headerGroups={headerGroups}
+      />
+      <TableBody
+        getTableBodyProps={getTableBodyProps}
+        prepareRow={prepareRow}
+        rows={rows}
+      />
     </table>
   );
 };

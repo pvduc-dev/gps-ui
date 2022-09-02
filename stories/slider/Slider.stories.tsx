@@ -3,7 +3,9 @@ import React from "react";
 import { ComponentStory } from "@storybook/react";
 
 import {
-  Card, CardContent, CardTitle,
+  Card,
+  CardContent,
+  CardTitle,
   Slider
 } from "../../src";
 
