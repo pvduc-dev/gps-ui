@@ -53,7 +53,7 @@
 
   html {
     text-rendering: optimizeLegibility !important;
-    -webkit-text-stroke-width: .3pt;
+    -webkit-text-stroke-width: .2pt;
     -webkit-font-smoothing: antialiased;
   }
 

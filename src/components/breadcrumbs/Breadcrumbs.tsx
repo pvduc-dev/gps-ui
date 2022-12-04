@@ -1,8 +1,8 @@
-import React, {Children, cloneElement, FC, PropsWithChildren, ReactElement} from 'react';
+import React, {Children, cloneElement, FC, PropsWithChildren} from 'react';
 import {useBreadcrumbs} from '@react-aria/breadcrumbs';
 import {AriaBreadcrumbsProps} from '@react-types/breadcrumbs'
 
-interface BreadcrumbsProps extends AriaBreadcrumbsProps<any> {
+interface BreadcrumbsProps extends AriaBreadcrumbsProps {
 
 }
 
@@ -17,7 +17,7 @@ const Breadcrumbs: FC<PropsWithChildren<BreadcrumbsProps>> = (props) => {
         className="flex"
       >
         {children.map((child, idx) =>
-          cloneElement(child as ReactElement, {isCurrent: idx === children.length - 1})
+          cloneElement(child as any, {isCurrent: idx === children.length - 1} as any)
         )}
       </ol>
     </nav>

@@ -1,6 +1,6 @@
 import React, {forwardRef, ForwardRefRenderFunction, RefObject, useRef} from 'react';
 import {useNumberField} from '@react-aria/numberfield';
-import {useNumberFieldState} from '@react-stately/numberfield';
+import {useNumberFieldState, NumberFieldStateOptions} from '@react-stately/numberfield';
 import {useLocale} from '@react-aria/i18n';
 import {AriaNumberFieldProps} from '@react-types/numberfield';
 import {useButton} from "react-aria";
@@ -12,9 +12,9 @@ interface NumberFieldProps extends AriaNumberFieldProps {
 }
 
 const NumberField: ForwardRefRenderFunction<HTMLInputElement, NumberFieldProps> = (props, ref) => {
-  const inputRef = ref ?? useRef<HTMLInputElement>(null);
+  const inputRef = ref ?? useRef<HTMLInputElement>();
   const {locale} = useLocale();
-  const state = useNumberFieldState({...props, locale})
+  const state = useNumberFieldState({...props, locale} as NumberFieldStateOptions)
   const incrRef = React.useRef<HTMLButtonElement>();
   const decRef = React.useRef<HTMLButtonElement>();
 
@@ -53,7 +53,7 @@ const NumberField: ForwardRefRenderFunction<HTMLInputElement, NumberFieldProps> 
           className={clsx([
             BASE_INPUT_CLASS_NAME
           ])}
-          ref={inputRef}
+          ref={inputRef as any}
           {...inputProps}
         />
         <button
@@ -72,7 +72,7 @@ const NumberField: ForwardRefRenderFunction<HTMLInputElement, NumberFieldProps> 
             'cursor-default',
             'dark:border-[#1F1B39]'
           ])}
-          {...decrementProps} ref={decRef}
+          {...decrementProps} ref={decRef as any}
         >
           <svg
             className="fill-current"
@@ -105,7 +105,7 @@ const NumberField: ForwardRefRenderFunction<HTMLInputElement, NumberFieldProps> 
             'cursor-default',
             'dark:border-[#1F1B39]'
           ])}
-          {...incrementProps} ref={incrRef}
+          {...incrementProps} ref={incrRef as any}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

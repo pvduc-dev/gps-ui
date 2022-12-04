@@ -4,15 +4,22 @@ interface PreventScrollOptions {
   isDisabled?: boolean
 }
 
-const SCROLL_KEYCODES = [33, 34, 37, 38, 39, 40];
+const SCROLL_KEYBOARD_CODE = [
+  'ArrowDown',
+  'ArrowUp',
+  'ArrowLeft',
+  'ArrowRight',
+  'PageUp',
+  'PageDown'
+]
 
 function preventDefault(e: any) {
   e.preventDefault();
 }
 
-function preventDefaultForScrollKeys(e: KeyboardEvent) {
-  if (SCROLL_KEYCODES.includes(e.keyCode)) {
-    preventDefault(e);
+function preventDefaultForScrollKeys(evt: KeyboardEvent) {
+  if (SCROLL_KEYBOARD_CODE.includes(evt.code)) {
+    preventDefault(evt);
   }
 }
 
