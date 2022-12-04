@@ -24,3 +24,4 @@ export * from './components/dialog/AlertDialog';
 export * from './components/checkbox/Checkbox';
 export * from './components/notification/Notification';
 export * from './components/notification/NotificationProvider';
+export * from './components/tree-view/TreeView';

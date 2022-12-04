@@ -15,7 +15,6 @@
     "build": "tsdx build",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
-    "prepare": "tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why",
     "storybook": "start-storybook -p 6006",
@@ -49,10 +48,12 @@
     }
   ],
   "dependencies": {
+    "@minoru/react-dnd-treeview": "^3.4.0",
     "@types/lodash-es": "^4.17.6",
     "clsx": "^1.1.1",
     "lodash-es": "^4.17.21",
     "react-aria": "^3.12.0",
+    "react-dnd": "^16.0.1",
     "react-headless-notifier": "^0.1.6",
     "react-hook-form": "^7.27.1",
     "react-pin-input": "^1.0.1",

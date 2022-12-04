@@ -5,15 +5,14 @@ import { ComponentStory } from '@storybook/react';
 import {
   AvatarGroup,
   Card, CardContent,
-  Form
 } from '../../src';
 
 export default {
   title: 'AvatarGroup',
-  component: Form as any
+  component: AvatarGroup as any
 }
 
-export const Story: ComponentStory<typeof Form> = () => {
+export const Story: ComponentStory<typeof AvatarGroup> = () => {
 
   return (
     <Card

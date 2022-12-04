@@ -5,8 +5,8 @@ const NotificationProvider: FC = (props) => {
   return (
     <NotifierContextProvider
       config={{
-        max: 4,
-        duration: 5000,
+        max: 3,
+        duration: 4000,
         position: 'bottomRight',
       }}
     >
